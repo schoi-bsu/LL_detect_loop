@@ -71,7 +71,17 @@ class Solution
     //Function to check if the linked list has a loop.
     bool detectLoop(Node* head)
     {
-        // your code here
+        Node * curr;
+    	curr = head;
+    	unordered_set <Node*> nodeSet;
+    	while (curr){
+        	if (nodeSet.find(curr) != nodeSet.end())
+            		return true;
+        
+        	nodeSet.insert(curr);
+        	curr = curr->next;
+    	}
+    	return false;
     }
 };
 
